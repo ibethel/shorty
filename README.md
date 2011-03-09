@@ -17,6 +17,19 @@ stats page, simply type in http://shorty.me/jsns+ and you will be redirected.
 Unfortunately this is not possible.  You can edit it to redirect to something else, but deleting it can be problematic.  If this request becomes
 requested often enough, the feature may be built in.  But for now, it is not available, sorry.
 
+
+#### But what if I want to expire my link?
+Nothing automated at this point, sorry.  But you can just change the short-code or expanded URL to send the user to something else.  If
+you change the short code, users that attempt to use the invalid short code will be shown a shorty 404 page.
+
+
+#### Can I change the short code?
+YES!  You can change the short code.  However, be very careful with this.  Shorty DOES NOT keep a history of short codes, so you are at risk
+of breaking links that may have already been put out there.
+
+#### Is there an API?
+Not yet.  If there is a need, we might build one, but nothing in the works at this point.
+
 ### Todo
 1. Write tests
 2. Capture more information about users
