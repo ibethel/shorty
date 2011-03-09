@@ -16,7 +16,12 @@ class ShortsController < ApplicationController
   # GET /shorts/1
   # GET /shorts/1.xml
   def show
-    render_short
+    if params[:a].split("").last == "+"
+      @short = Short.find_by_contracted(params[:a].chop)
+      redirect_to short_visits_path(@short)
+    else
+      redirect_short
+    end
   end
 
   # GET /shorts/new
@@ -66,4 +71,15 @@ class ShortsController < ApplicationController
       end
     end
   end
+  
+  
+  private
+  
+    def redirect_short
+      @short = Short.find_by_contracted(params[:a])
+      @short.record_visit(request.env['HTTP_REFERER'])
+      respond_to do |format|
+        format.html { redirect_to(@short.expanded) }
+      end
+    end
 end

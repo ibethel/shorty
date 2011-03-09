@@ -321,6 +321,36 @@ body#users div.single-comment { margin-bottom: 20px; }
 }
 #wrapper table tr:nth-child(even) td { background: #f8f8f8; }
 #wrapper table tr:hover td { background: #ffffe7; }
+#wrapper div#short-stats {
+  border: 1px solid #e8e8e8;
+  padding: 10px;
+}
+#wrapper div#short-stats h2 {
+  border-bottom: 1px solid #e8e8e8;
+  color: #666666;
+  font-size: 1.6em;
+}
+#wrapper div#short-stats table th {
+  padding-right: 20px;
+  text-align: right;
+}
+#wrapper div#short-stats table thead th {
+  background: none;
+  color: #444444;
+  border: none;
+  font-size: 1.8em;
+}
+#wrapper div#short-stats table thead td {
+  background: none;
+  color: #444444;
+  border: none;
+  font-size: 1.8em;
+}
+#wrapper div#short-stats table tbody td { border: none; }
+#wrapper div#short-stats table tbody th { border: none; }
+#wrapper div#short-stats table tbody tr:hover td { background: none; }
+#wrapper div#short-stats table tbody tr:hover th { background: none; }
+body#visits h3 { margin: 20px auto; }
 section#above-wrapper div.future-answers-explain {
   background: #ffffe7;
   color: #222222;

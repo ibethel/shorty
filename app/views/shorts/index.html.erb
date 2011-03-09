@@ -4,19 +4,17 @@
 <table>
 	<thead>
 		<tr>
-			<th>URL</th>
+			<th>Site</th>
 			<th>Short Link</th>
-			<th></th>
 			<th></th>
 		</tr>
 	</thead>
 	<tbody>
 	<% @shorts.each do |short| %>
 		<tr>
-			<td><%= short.expanded %></td>
-			<td><%= link_to("#{root_url}#{short.contracted}", short.contracted, target: "_blank") %></td>
+			<td><%= link_to short.title, stats_url(short) %></td>
+			<td><%= link_to(short_url(short), short.contracted, target: "_blank") %></td>
 			<td><%= link_to "edit", edit_short_path(short) %></td>
-			<td><%= link_to "report", short_visits_path(short) %></td>
 		</tr>
 	<% end %>
 	</tbody>
