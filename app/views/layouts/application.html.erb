@@ -10,8 +10,16 @@
 <body id="<%= controller.controller_name %>">
 	
 	<div class="container">
-		
-		
+		<header>
+			<nav class="span-24 last">
+				<ul>
+				<% if current_user %>
+				  <li><%= link_to "Sign Out", signout_path %></li>
+				<% end %>
+				</ul>
+			</nav>
+			<div class="clear"></div>
+		</header>
 		
 		<section id="flash-messages">
 			<% if notice %>
