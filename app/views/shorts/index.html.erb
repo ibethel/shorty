@@ -14,7 +14,7 @@
 	<% @shorts.each do |short| %>
 		<tr>
 			<td><%= short.expanded %></td>
-			<td><%= link_to("#{root_url}#{short.contracted}", short.contracted) %></td>
+			<td><%= link_to("#{root_url}#{short.contracted}", short.contracted, target: "_blank") %></td>
 			<td><%= link_to "edit", edit_short_path(short) %></td>
 			<td><%= link_to "report", short_visits_path(short) %></td>
 		</tr>
