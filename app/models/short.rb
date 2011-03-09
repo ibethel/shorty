@@ -14,8 +14,8 @@ class Short < ActiveRecord::Base
     self.contracted = ActiveSupport::SecureRandom.base64(Random.new.rand(4..8)).gsub(/[^0-9a-z]/i, "") if contracted.blank?
   end
   
-  def record_visit(referrer)
-    Visit.create(short: self, referred: referrer)
+  def record_visit(referrer, ipaddy)
+    Visit.create(short: self, referred: referrer, ipaddress: ipaddy)
   end
   
   def title
