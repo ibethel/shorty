@@ -8,7 +8,7 @@ class Short < ActiveRecord::Base
   validates :contracted, uniqueness: true
   has_many :visits, :dependent => :delete_all
   default_scope :order => "updated_at DESC"
-  has_friendly_id :contracted, :use_slug => true
+  has_friendly_id :contracted, :use_slug => true, :allow_nil => true
   
   
   def generate_short_code
