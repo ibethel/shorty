@@ -1,4 +1,6 @@
 class ShortsController < ApplicationController
+  
+  before_filter :require_authentication, :except => [:show, :render_short]
   # GET /shorts
   # GET /shorts.xml
   def index

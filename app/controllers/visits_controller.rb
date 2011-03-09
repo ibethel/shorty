@@ -1,5 +1,7 @@
 class VisitsController < ApplicationController
   
+  before_filter :require_authentication
+  
   def index
     @short = Short.find(params[:short_id])
     @visits = @short.visits
