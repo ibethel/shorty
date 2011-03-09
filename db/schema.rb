@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110309004009) do
+ActiveRecord::Schema.define(:version => 20110309005650) do
 
   create_table "shorts", :force => true do |t|
     t.string   "expanded"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20110309004009) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "shorts", ["contracted"], :name => "index_shorts_on_contracted"
 
   create_table "users", :force => true do |t|
     t.string   "provider"
@@ -32,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20110309004009) do
     t.string   "referred"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "ipaddress"
   end
+
+  add_index "visits", ["short_id"], :name => "index_visits_on_short_id"
 
 end

@@ -1,8 +1,7 @@
 class Short < ActiveRecord::Base
   before_create :generate_short_code
   validates :expanded, 
-            :presence => true,   
-            :uniqueness => true, 
+            :presence => true,
             :format => { :with => /^(http|https):\/\/[a-z0-9]/ix }
             
   validates :contracted, uniqueness: true

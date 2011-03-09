@@ -5,6 +5,7 @@ class ShortsController < ApplicationController
   # GET /shorts.xml
   def index
     @shorts = Short.all
+    @view_count = Visit.count(:all)
 
     respond_to do |format|
       format.html # index.html.erb
