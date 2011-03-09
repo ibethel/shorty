@@ -1,6 +1,4 @@
 class Short < ActiveRecord::Base
-  
-  attr_accessible :expanded
   before_create :generate_short_code
   validates :expanded, 
             :presence => true,   
@@ -13,7 +11,7 @@ class Short < ActiveRecord::Base
   
   
   def generate_short_code
-    self.contracted = ActiveSupport::SecureRandom.base64(Random.new.rand(4..8)).gsub(/[^0-9a-z]/i, '')
+    self.contracted = ActiveSupport::SecureRandom.base64(Random.new.rand(4..8)).gsub(/[^0-9a-z]/i, '') if contracted.blank?
   end
   
   def record_visit(referrer)

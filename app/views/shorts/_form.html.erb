@@ -1,21 +1,26 @@
 <%= form_for(@short) do |f| %>
-  <% if @short.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@short.errors.count, "error") %> prohibited this short from being saved:</h2>
+	<% if @short.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@short.errors.count, "error") %> prohibited this short from being saved:</h2>
 
-      <ul>
-      <% @short.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+				<% @short.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :expanded, "URL" %><br />
-    <%= f.text_field :expanded %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="field">
+		<%= f.label :expanded, "URL" %><br />
+		<%= f.text_field :expanded %>
+	</div>
+
+	<div class="field">
+		<%= f.label :contracted, "Short Code" %><br />
+		<%= f.text_field :contracted, placeholder: "leave blank to auto-generate" %>
+	</div>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
 <% end %>
