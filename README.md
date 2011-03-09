@@ -1,4 +1,4 @@
-## About Shorty
+# About Shorty
 
 Shorty is a quick and dirty, yet highly useful, URL shortener written for Bethel Church.  The basic premise is that it allows
 any user with an "@ibethel.org" email address to quickly create shortened URLs to provide to the public.
