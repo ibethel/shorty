@@ -13,4 +13,7 @@ class ApplicationController < ActionController::Base
       redirect_to "/auth/google_apps" unless current_user
     end
     
+    def render_404
+      render template: "errors/404"
+    end
 end

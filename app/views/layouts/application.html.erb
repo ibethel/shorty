@@ -10,7 +10,10 @@
 	
 	<div class="container">
 		<header>
-			<nav class="span-24 last">
+			<div class="span-5">
+				<%= link_to("Bethel Short Links", root_path)%>
+			</div>
+			<nav class="span-19 last">
 				<ul>
 				<% if current_user %>
 				  <li><%= link_to "Sign Out", signout_path %></li>

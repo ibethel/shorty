@@ -77,9 +77,14 @@ class ShortsController < ApplicationController
   
     def redirect_short
       @short = Short.find_by_contracted(params[:a])
-      @short.record_visit(request.env["HTTP_REFERER"])
+      @short.record_visit(request.env["HTTP_REFERER"]) unless @short.blank?
+      
       respond_to do |format|
-        format.html { redirect_to(@short.expanded) }
+        if @short.blank?
+          format.html { render_404 }
+        else
+          format.html { redirect_to(@short.expanded) }
+        end
       end
     end
 end
