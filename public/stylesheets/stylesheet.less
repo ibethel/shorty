@@ -20,6 +20,11 @@ header
 {
 	margin:0 auto;
 	
+	div#logo
+	{
+		margin:20px 0;
+	}
+	
 	nav
 	{
 		font-size:1.2em;
@@ -174,9 +179,13 @@ body#users
 #wrapper
 {
 	background:#fff;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 	margin:50px auto 10px auto;
 	padding-top:40px;
 	padding-bottom:40px;
+	
+	
 	
 	div#error_explanation
 	{
@@ -202,22 +211,9 @@ body#users
 		font-size:2em;
 		margin-bottom:10px;
 		
-		span.all-done
+		span.small
 		{
-			font-size:0.5em;
-			position:relative;
-			bottom:5px;
-
-			a
-			{
-				color:#444;
-				text-decoration:none;
-			}
-
-			a:hover
-			{
-				color:#E34C26;
-			}
+			font-size:0.7em;
 		}
 	}
 	
@@ -251,7 +247,12 @@ body#users
 		display:none;
 	}
 	
-	
+	span.hint
+	{
+		background:#ffc;
+		margin-left:5px;
+		padding:5px;
+	}
 	
 	a.buttons
 	{

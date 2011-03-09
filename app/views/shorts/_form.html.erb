@@ -19,6 +19,10 @@
 	<div class="field">
 		<%= f.label :contracted, "Short Code" %><br />
 		<%= f.text_field :contracted, placeholder: "leave blank to auto-generate" %>
+		
+		<% if @short.id %>
+			<span class="hint">Changing this will break old links.</span>
+		<% end %>
 	</div>
 	<div class="actions">
 		<%= f.submit %>

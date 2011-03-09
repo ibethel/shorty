@@ -6,6 +6,7 @@ body {
   margin: 0 auto 150px auto;
 }
 header { margin: 0 auto; }
+header div#logo { margin: 20px 0; }
 header nav {
   font-size: 1.2em;
   text-align: right;
@@ -104,6 +105,8 @@ section#flash-messages p.alert { background: #d43c3c; }
 body#users div.single-comment { margin-bottom: 20px; }
 #wrapper {
   background: #ffffff;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
   margin: 50px auto 10px auto;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -123,16 +126,7 @@ body#users div.single-comment { margin-bottom: 20px; }
   font-size: 2em;
   margin-bottom: 10px;
 }
-#wrapper h1 span.all-done {
-  font-size: 0.5em;
-  position: relative;
-  bottom: 5px;
-}
-#wrapper h1 span.all-done a {
-  color: #444444;
-  text-decoration: none;
-}
-#wrapper h1 span.all-done a:hover { color: #e34c26; }
+#wrapper h1 span.small { font-size: 0.7em; }
 #wrapper h2 { font-size: 1.7em; }
 #wrapper h3 { font-size: 1.3em; }
 #wrapper ol { margin: 10px 10px 10px 25px; }
@@ -141,6 +135,11 @@ body#users div.single-comment { margin-bottom: 20px; }
 #wrapper ul li { margin: 7px 0; }
 #wrapper p { margin: 10px 0; }
 #wrapper .hide { display: none; }
+#wrapper span.hint {
+  background: #ffffcc;
+  margin-left: 5px;
+  padding: 5px;
+}
 #wrapper a.buttons {
   background: #eeeeee;
   background: -moz-linear-gradient(0% 100% 90deg, #cccccc, #eeeeee);
