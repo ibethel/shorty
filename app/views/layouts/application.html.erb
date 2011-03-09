@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Shorty</title>
+	
+	<%= stylesheet_link_tag "reset", "grid", "tabs", "autocomplete", "stylesheet", cache: "styles" %>
+	<%= javascript_include_tag "jquery", "jquery.tabs", "rails", "autocomplete-rails", "application", cache: "scripts" %>
+	<%= csrf_meta_tag %>
+</head>
+<body id="<%= controller.controller_name %>">
+	
+	<div class="container">
+		
+		
+		
+		<section id="flash-messages">
+			<% if notice %>
+				<p class="notice"><%= notice %></p>
+			<% end %>
+			
+			<% if alert %>
+				<p class="alert"><%= alert %></p>
+			<% end %>
+		</section>
+		
+		<section id="above-wrapper">
+			<%= yield :above_wrapper %>
+		</section>
+		
+		<div id="wrapper" class="clear span-22 append-1 prepend-1 last">
+			<%= yield %>
+		</div>
+	
+		<footer class="clear span-24 last">
+			
+		</footer>
+	</div>
+	
+</body>
+</html>

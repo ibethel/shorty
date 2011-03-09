@@ -1,0 +1,15 @@
+<h1><%= pluralize(@visits.count, "Redirect")%> from <%= pluralize(@uniques, "Referrer")%></h1>
+
+<table>
+  <tr>
+    <th>Short</th>
+    <th>Referred</th>
+  </tr>
+
+<% @visits.each do |visit| %>
+  <tr>
+    <td><%= @short.expanded %></td>
+    <td><%= visit.referred %></td>
+  </tr>
+<% end %>
+</table>

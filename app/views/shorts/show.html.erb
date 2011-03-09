@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Expanded:</b>
+  <%= @short.expanded %>
+</p>
+
+<p>
+  <b>Contracted:</b>
+  <%= link_to(@short.contracted, @short.contracted) %>
+</p>
+
+
+<%= link_to 'Edit', edit_short_path(@short) %> |
+<%= link_to 'Back', shorts_path %>

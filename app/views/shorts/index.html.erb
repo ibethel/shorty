@@ -1,0 +1,23 @@
+<h1 class="span-17">Listing shorts</h1>
+<%= link_to 'New Short', new_short_path, class: "buttons span-4 last" %>
+
+<table>
+	<thead>
+		<tr>
+			<th>URL</th>
+			<th>Short Link</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @shorts.each do |short| %>
+		<tr>
+			<td><%= short.expanded %></td>
+			<td><%= link_to("#{root_url}#{short.contracted}", short.contracted) %></td>
+			<td><%= link_to "edit", edit_short_path(short) %></td>
+			<td><%= link_to "report", short_visits_path(short) %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
