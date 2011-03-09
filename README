@@ -5,3 +5,8 @@ any user with an "@ibethel.org" email address to quickly create shortened URLs t
 
 These URLs are tracked by referrer and by visitor, allowing us to gain a better understanding of who is sending traffic our
 direction and who those users are.
+
+### Todo
+1. Write tests
+2. Capture more information about users
+3. Better reporting output
