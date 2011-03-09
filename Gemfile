@@ -10,3 +10,10 @@ gem "faker"
 gem "omniauth"
 gem "nokogiri"
 gem "friendly_id"
+gem "ruby-openid-apps-discovery"
+gem "ruby-mysql"
+
+group :development, :test do
+	gem "capistrano"
+	gem "capistrano-ext"
+end

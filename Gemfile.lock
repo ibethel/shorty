@@ -32,6 +32,14 @@ GEM
     arel (2.0.8)
     babosa (0.2.2)
     builder (2.1.2)
+    capistrano (2.5.19)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faker (0.9.5)
@@ -42,6 +50,7 @@ GEM
       rack (>= 1.1.0, < 2)
     friendly_id (3.2.1)
       babosa (~> 0.2.1)
+    highline (1.6.1)
     i18n (0.5.0)
     mail (2.2.15)
       activesupport (>= 2.3.6)
@@ -52,6 +61,13 @@ GEM
     multi_json (0.0.5)
     multipart-post (1.1.0)
     net-ldap (0.1.1)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.1.0)
+    net-ssh-gateway (1.0.1)
+      net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
     oa-basic (0.1.6)
       multi_json (~> 0.0.2)
@@ -112,6 +128,7 @@ GEM
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
+    ruby-mysql (2.9.4)
     ruby-openid (2.1.8)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
@@ -126,9 +143,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  capistrano
+  capistrano-ext
   faker
   friendly_id
   nokogiri
   omniauth
   rails (= 3.0.5)
+  ruby-mysql
+  ruby-openid-apps-discovery
   sqlite3
