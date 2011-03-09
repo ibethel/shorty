@@ -6,6 +6,17 @@ any user with an "@ibethel.org" email address to quickly create shortened URLs t
 These URLs are tracked by referrer and by visitor, allowing us to gain a better understanding of who is sending traffic our
 direction and who those users are.
 
+There are a couple ways to get to the stats page.  The first way is to click on the link title when viewing the complete list of shorts. (the home page)
+The second way is to simply append "+" to the end of the short URL.  For example, if the short URL is http://shorty.me/jsns, then to get to the
+stats page, simply type in http://shorty.me/jsns+ and you will be redirected.
+
+
+### FAQ
+
+#### What if I want to delete a short?
+Unfortunately this is not possible.  You can edit it to redirect to something else, but deleting it can be problematic.  If this request becomes
+requested often enough, the feature may be built in.  But for now, it is not available, sorry.
+
 ### Todo
 1. Write tests
 2. Capture more information about users
