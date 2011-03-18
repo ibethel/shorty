@@ -105,8 +105,7 @@ section#flash-messages p.alert { background: #d43c3c; }
 body#users div.single-comment { margin-bottom: 20px; }
 #wrapper {
   background: #ffffff;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
+  border: 1px solid #d7d6d3;
   margin: 50px auto 10px auto;
   padding-top: 40px;
   padding-bottom: 40px;
