@@ -6,6 +6,7 @@
 		<tr>
 			<th>Site</th>
 			<th>Short Link</th>
+			<th>Visits</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -14,6 +15,7 @@
 		<tr>
 			<td><%= link_to short.title, stats_url(short) %></td>
 			<td><%= link_to(short_url(short), short.contracted, target: "_blank") %></td>
+			<td><%= short.visits.count %></td>
 			<td><%= link_to "edit", edit_short_path(short) %></td>
 		</tr>
 	<% end %>
