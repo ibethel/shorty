@@ -59,7 +59,7 @@
 			<tbody>
 				<% @referrers.each do |name, val| %>
 				<tr>
-					<th scope="row"><%= name %></th>
+					<th scope="row" style="word-wrap: break-word;"><%= name %></th>
 					<td><%= val.to_i %></td>
 				</tr>
 				<% end %>
