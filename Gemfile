@@ -16,4 +16,6 @@ gem "ruby-mysql"
 group :development, :test do
 	gem "capistrano"
 	gem "capistrano-ext"
+	gem "rspec-rails"
+	gem "factory_girl_rails"
 end
