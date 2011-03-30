@@ -18,4 +18,5 @@ group :development, :test do
 	gem "capistrano-ext"
 	gem "rspec-rails"
 	gem "factory_girl_rails"
+	gem "thin"
 end

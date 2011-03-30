@@ -7,6 +7,7 @@ class Short < ActiveRecord::Base
             
   validates :contracted, uniqueness: true
   has_many :visits, :dependent => :delete_all
+  belongs_to :user
   default_scope :order => "updated_at DESC"
   
   
@@ -20,6 +21,22 @@ class Short < ActiveRecord::Base
   
   def title
     read_attribute(:title) || expanded
+  end
+  
+  def as_json(options = {})
+    super(:only => [:contracted, :expanded], :methods => [:clicks, :hashed, :created])
+  end
+  
+  def hashed
+    contracted
+  end
+  
+  def clicks
+    visits.count
+  end
+  
+  def created
+    created_at
   end
   
   

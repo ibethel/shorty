@@ -44,7 +44,8 @@ class ShortsController < ApplicationController
   # POST /shorts.xml
   def create
     @short = Short.new(params[:short])
-
+    @short.user = @current_user
+    
     respond_to do |format|
       if @short.save
         format.html { redirect_to(shorts_path, :notice => 'Short was successfully created.') }
@@ -60,7 +61,8 @@ class ShortsController < ApplicationController
   # PUT /shorts/1.xml
   def update
     @short = Short.find(params[:id])
-
+    @short.user = @current_user
+    
     respond_to do |format|
       if @short.update_attributes(params[:short])
         format.html { redirect_to(shorts_path, :notice => 'Short was successfully updated.') }

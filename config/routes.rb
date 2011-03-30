@@ -8,6 +8,10 @@ Shorty::Application.routes.draw do
     resources :visits
   end
   
+  namespace :api do
+    resources :shorts
+  end
+  
   root :to => "shorts#index"
   match '*a', :to => 'shorts#show'
 end

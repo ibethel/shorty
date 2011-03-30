@@ -1,19 +1,18 @@
 class ApiController < ActionController::Base
-  protect_from_forgery
-  helper_method :current_user
-  rescue_from AbstractController::ActionNotFound, with: :render_short
+  
+  before_filter :validate_credentials
   
   private
     
-    def current_user
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    def validate_credentials
+      @user = User.find_by_api_key(params[:apiKey])
+      
+      unless @user
+        respond_to do |format|
+          format.json { render json: { :status_code => 500, :status_text => "MISSING_ARG_LOGIN" } }
+          format.xml { render "api/errors/user" }
+        end
+      end
     end
     
-    def require_authentication
-      redirect_to "/auth/google_apps" unless current_user
-    end
-    
-    def render_404
-      render template: "errors/404"
-    end
 end
