@@ -7,7 +7,7 @@
 	<%= csrf_meta_tag %>
 </head>
 <body id="<%= controller.controller_name %>">
-	
+
 	<div class="container">
 		<header>
 			<div class="span-5" id="logo">
@@ -15,36 +15,37 @@
 			</div>
 			<nav class="span-19 last">
 				<ul>
-				<% if current_user %>
-				  <li><%= link_to "Sign Out", signout_path %></li>
-				<% end %>
+					<% if current_user %>
+						<li><%= link_to "My Account", my_account_path %></li>
+						<li><%= link_to "Sign Out", signout_path %></li>
+					<% end %>
 				</ul>
 			</nav>
 			<div class="clear"></div>
 		</header>
-		
+
 		<section id="flash-messages">
 			<% if notice %>
-				<p class="notice"><%= notice %></p>
+			<p class="notice"><%= notice %></p>
 			<% end %>
-			
+
 			<% if alert %>
-				<p class="alert"><%= alert %></p>
+			<p class="alert"><%= alert %></p>
 			<% end %>
 		</section>
-		
+
 		<section id="above-wrapper">
 			<%= yield :above_wrapper %>
 		</section>
-		
+
 		<div id="wrapper" class="clear span-22 append-1 prepend-1 last">
 			<%= yield %>
 		</div>
-	
+
 		<footer class="clear span-24 last">
-			
+
 		</footer>
 	</div>
-	
+
 </body>
 </html>

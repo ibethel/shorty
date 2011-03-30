@@ -1,5 +1,6 @@
 Shorty::Application.routes.draw do
   
+  get "users" => "users#index", :as => :my_account
   match "/auth/:provider/callback" => "sessions#create"
   match "/auth/failure" => "sessions#failure"
   match "/signout" => "sessions#destroy", :as => :signout
