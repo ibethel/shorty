@@ -5,7 +5,7 @@ class ApiController < ActionController::Base
   private
     
     def validate_credentials
-      @user = User.find_by_api_key(params[:apiKey]) || User.first
+      @user = User.find_by_api_key(params[:apiKey])
       
       unless @user
         respond_to do |format|
