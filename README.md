@@ -28,7 +28,7 @@ YES!  You can change the short code.  However, be very careful with this.  Short
 of breaking links that may have already been put out there.
 
 #### Is there an API?
-Not yet.  If there is a need, we might build one, but nothing in the works at this point.
+YES!  API docs are available at <https://github.com/ibethel/shorty/wiki/API>
 
 ### Todo
 1. Write tests
