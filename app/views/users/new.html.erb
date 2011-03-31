@@ -1,0 +1,22 @@
+<h1>Service API Keys</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Service Name</th>
+			<th>API Key</th>
+			<th>Links Created</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td><%= user.name %></td>
+				<td><%= user.api_key %></td>
+				<td><%= user.shorts.count %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= render "form" %>

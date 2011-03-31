@@ -1,0 +1,27 @@
+<%= form_for(@user) do |f| %>
+	<fieldset>
+		<legend>Add/Edit Application</legend>
+		<% if @user.errors.any? %>
+			<div id="error_explanation">
+				<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+				<ul>
+					<% @user.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	
+		<%= f.hidden_field :provider, value: "api" %>
+		<%= f.hidden_field :uid, value: @user.uid || ActiveSupport::SecureRandom.base64 %>
+
+		<div class="field">
+			<%= f.label :name %>
+			<%= f.text_field :name, placeholder: "application name" %>
+		</div>
+	</fieldset>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

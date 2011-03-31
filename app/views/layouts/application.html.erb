@@ -16,7 +16,8 @@
 			<nav class="span-19 last">
 				<ul>
 					<% if current_user %>
-						<li><%= link_to "My Account", my_account_path %></li>
+						<li><%= link_to "My Account", users_path %></li>
+						<li><%= link_to "Site Keys", new_user_path %></li>
 						<li><%= link_to "Sign Out", signout_path %></li>
 					<% end %>
 				</ul>
