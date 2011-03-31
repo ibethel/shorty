@@ -1,4 +1,4 @@
-<h1 class="span-17"><%= pluralize(@shorts.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
+<h1 class="span-17"><%= pluralize(Short.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
 <%= link_to 'New Short', new_short_path, class: "buttons span-4 last" %>
 
 <table>

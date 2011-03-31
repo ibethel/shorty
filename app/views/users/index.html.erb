@@ -1,3 +1,25 @@
 <h1>My Account</h1>
 <p>API Key: <strong><%= @user.api_key %></strong></p>
 <p>Number of Links: <strong><%= @user.shorts.count %></strong></p>
+
+<h3>My Links</h3>
+<table>
+	<thead>
+		<tr>
+			<th>Site</th>
+			<th>Short Link</th>
+			<th>Visits</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @user.shorts.each do |short| %>
+		<tr>
+			<td><%= link_to short.title, stats_url(short) %></td>
+			<td><%= link_to(short_url(short), short.contracted, target: "_blank") %></td>
+			<td><%= short.visits.count %></td>
+			<td><%= link_to "edit", edit_short_path(short) %></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
