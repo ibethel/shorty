@@ -110,6 +110,7 @@ body#users div.single-comment { margin-bottom: 20px; }
   padding-top: 40px;
   padding-bottom: 40px;
 }
+#wrapper nav.pagination { margin: 20px 0; }
 #wrapper div#error_explanation {
   background: #d43c3c;
   color: #ffffff;

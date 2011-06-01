@@ -4,7 +4,7 @@ class ShortsController < ApplicationController
   # GET /shorts
   # GET /shorts.xml
   def index
-    @shorts = Short.limit(20).all
+    @shorts = Short.page(params[:page])
     @view_count = Visit.count(:all)
 
     respond_to do |format|

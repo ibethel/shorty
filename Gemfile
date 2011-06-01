@@ -12,6 +12,7 @@ gem "nokogiri"
 gem "friendly_id"
 gem "ruby-openid-apps-discovery"
 gem "ruby-mysql"
+gem "kaminari"
 
 group :development, :test do
 	gem "capistrano"

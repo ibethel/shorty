@@ -1,5 +1,8 @@
 <h1 class="span-17"><%= pluralize(Short.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
 <%= link_to 'New Short', new_short_path, class: "buttons span-4 last" %>
+<div class="clear"></div>
+
+<%= paginate @shorts %>
 
 <table>
 	<thead>
@@ -21,3 +24,5 @@
 	<% end %>
 	</tbody>
 </table>
+
+<%= paginate @shorts %>
