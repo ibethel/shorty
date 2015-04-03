@@ -1,5 +1,5 @@
 class ShortsController < ApplicationController
-  
+
   before_filter :require_authentication, :except => [:show, :render_short]
   # GET /shorts
   # GET /shorts.xml
@@ -43,9 +43,9 @@ class ShortsController < ApplicationController
   # POST /shorts
   # POST /shorts.xml
   def create
-    @short = Short.new(params[:short])
+    @short = Short.new(permitted_params[:short])
     @short.user = @current_user
-    
+
     respond_to do |format|
       if @short.save
         format.html { redirect_to(shorts_path, :notice => 'Short was successfully created.') }
@@ -62,9 +62,9 @@ class ShortsController < ApplicationController
   def update
     @short = Short.find(params[:id])
     @short.user = @current_user
-    
+
     respond_to do |format|
-      if @short.update_attributes(params[:short])
+      if @short.update_attributes(permitted_params[:short])
         format.html { redirect_to(shorts_path, :notice => 'Short was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -73,20 +73,24 @@ class ShortsController < ApplicationController
       end
     end
   end
-  
-  
+
+
   private
-  
-    def redirect_short
-      @short = Short.find_by_contracted(params[:a])
-      @short.record_visit(request.env["HTTP_REFERER"], request.env["REMOTE_ADDR"]) unless @short.blank?
-      
-      respond_to do |format|
-        if @short.blank?
-          format.html { render_404 }
-        else
-          format.html { redirect_to(@short.expanded) }
-        end
+
+  def permitted_params
+    params.permit(short: [:expanded, :contracted])
+  end
+
+  def redirect_short
+    @short = Short.find_by_contracted(params[:a])
+    @short.record_visit(request.env["HTTP_REFERER"], request.env["REMOTE_ADDR"]) unless @short.blank?
+
+    respond_to do |format|
+      if @short.blank?
+        format.html { render_404 }
+      else
+        format.html { redirect_to(@short.expanded) }
       end
     end
+  end
 end

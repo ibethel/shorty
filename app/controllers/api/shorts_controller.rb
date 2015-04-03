@@ -1,5 +1,5 @@
 class Api::ShortsController < ApiController
-  
+
   def index
     @shorts = @user.shorts.limit(params[:limit] || 10).all
 
@@ -12,7 +12,7 @@ class Api::ShortsController < ApiController
 
   def show
     @short = Short.find_by_contracted(params[:id])
-    
+
     respond_to do |format|
       format.json { render json: { status_code: 200, status_txt: "OK", shorts: @short } }
       format.xml  {}
@@ -21,9 +21,9 @@ class Api::ShortsController < ApiController
 
 
   def create
-    @short = Short.new(params[:short])
+    @short = Short.new(permitted_params[:short])
     @short.user = @user
-    
+
     respond_to do |format|
       if @short.save
         format.json { render json: { status_code: 200, status_txt: "OK", shorts: @short } }
@@ -34,5 +34,11 @@ class Api::ShortsController < ApiController
       end
     end
   end
-  
+
+  private
+
+  def permitted_params
+    params.permit(short: [:expanded, :contracted])
+  end
+
 end
