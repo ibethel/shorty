@@ -12,7 +12,7 @@ class Short < ActiveRecord::Base
 
 
   def generate_short_code
-    self.contracted = ActiveSupport::SecureRandom.base64(Random.new.rand(4..8)).gsub(/[^0-9a-z]/i, "") if contracted.blank?
+    self.contracted = SecureRandom.base64(Random.new.rand(4..8)).gsub(/[^0-9a-z]/i, "") if contracted.blank?
   end
 
   def record_visit(referrer, ipaddy)

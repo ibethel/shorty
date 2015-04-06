@@ -16,7 +16,7 @@ class ShortsController < ApplicationController
   # GET /shorts/1
   # GET /shorts/1.xml
   def show
-    if params[:a].split("").last == "+"
+    if params[:a].respond_to?(:split) && params[:a].split("").last == "+"
       @short = Short.find_by_contracted(params[:a].chop)
       redirect_to short_visits_path(@short)
     else
@@ -83,12 +83,12 @@ class ShortsController < ApplicationController
 
   def redirect_short
     @short = Short.find_by_contracted(params[:a])
-    @short.record_visit(request.env["HTTP_REFERER"], request.env["REMOTE_ADDR"]) unless @short.blank?
 
     respond_to do |format|
       if @short.blank?
         format.html { render_404 }
       else
+        @short.record_visit(request.env["HTTP_REFERER"], request.env["REMOTE_ADDR"]) unless @short.blank?
         format.html { redirect_to(@short.expanded) }
       end
     end
