@@ -26,8 +26,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:ibethel/shorty.git"
-set :branch, $1 if `git branch` =~ /\* (\S+)\s/m
-#set :branch, "master"
+set :branch, "master"
 
 namespace :deploy do
   desc "Tell Passenger to restart."
