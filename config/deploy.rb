@@ -80,7 +80,7 @@ namespace :deploy do
   #end
 end
 
-before "deploy", "deploy:check_revision"
+#before "deploy", "deploy:check_revision"
 after "deploy", "deploy:cleanup" # keeps only last 5 releases
 after "deploy:setup", "deploy:setup_shared"
 after "deploy:update_code", "deploy:symlink_extras"
