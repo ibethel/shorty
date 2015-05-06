@@ -13,6 +13,7 @@ gem "friendly_id"
 gem "ruby-openid-apps-discovery"
 gem "ruby-mysql"
 gem "kaminari"
+gem "awesome_print"
 
 group :development, :test do
 	gem "capistrano"

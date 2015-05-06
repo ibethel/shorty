@@ -29,6 +29,7 @@ GEM
       activesupport (= 3.0.10)
     activesupport (3.0.10)
     arel (2.0.10)
+    awesome_print (1.6.1)
     babosa (0.2.2)
     builder (2.1.2)
     capistrano (2.5.19)
@@ -146,6 +147,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   capistrano
   capistrano-ext
   factory_girl_rails
