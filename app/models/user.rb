@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :api_key, uniqueness: true
   
   def self.create_with_omniauth(auth)
+    puts auth
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
