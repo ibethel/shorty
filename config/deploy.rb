@@ -26,7 +26,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:ibethel/shorty.git"
-set :branch, "master"
+set :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 namespace :deploy do
   desc "Tell Passenger to restart."
