@@ -70,14 +70,14 @@ namespace :deploy do
     run "cd #{current_path}; rake RAILS_ENV=production db:seed"
   end
 
-  desc "Make sure there is something to deploy"
-  task :check_revision, :roles => :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/master`
-      puts "WARNING: HEAD is not the same as origin/master"
-      puts "Run `git push` to sync changes."
-      exit
-    end
-  end
+  #desc "Make sure there is something to deploy"
+  #task :check_revision, :roles => :web do
+  #  unless `git rev-parse HEAD` == `git rev-parse origin/master`
+  #    puts "WARNING: HEAD is not the same as origin/master"
+  #    puts "Run `git push` to sync changes."
+  #    exit
+  #  end
+  #end
 end
 
 before "deploy", "deploy:check_revision"
