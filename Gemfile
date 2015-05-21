@@ -7,13 +7,13 @@ gem "rails", "4.2.1"
 
 gem "sqlite3"
 gem "faker"
-gem "omniauth"
-gem "omniauth-google-apps"
+gem "omniauth-google-oauth2"
 gem "nokogiri"
 gem "friendly_id"
 gem "ruby-openid-apps-discovery"
 gem "ruby-mysql"
 gem "kaminari"
+gem "awesome_print"
 
 group :development, :test do
 	gem "capistrano"

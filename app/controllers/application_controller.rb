@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_authentication
-      redirect_to "/auth/google_apps" unless current_user
+      redirect_to "/auth/google_oauth2" unless current_user
     end
 
     def render_404

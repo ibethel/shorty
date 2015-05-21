@@ -40,7 +40,7 @@ describe User do
     auth_info = {
       "provider" => "some_provider",
       "uid" => "a uid",
-      "user_info" => {"name" => "some user name"}
+      "info" => {"name" => "some user name"}
     }
 
     User.destroy_all

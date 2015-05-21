@@ -26,7 +26,7 @@ set :use_sudo, false
 
 set :scm, "git"
 set :repository, "git@github.com:ibethel/shorty.git"
-set :branch, "master"
+set :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 namespace :deploy do
   desc "Tell Passenger to restart."
@@ -70,17 +70,17 @@ namespace :deploy do
     run "cd #{current_path}; rake RAILS_ENV=production db:seed"
   end
 
-  desc "Make sure there is something to deploy"
-  task :check_revision, :roles => :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/master`
-      puts "WARNING: HEAD is not the same as origin/master"
-      puts "Run `git push` to sync changes."
-      exit
-    end
-  end
+  #desc "Make sure there is something to deploy"
+  #task :check_revision, :roles => :web do
+  #  unless `git rev-parse HEAD` == `git rev-parse origin/master`
+  #    puts "WARNING: HEAD is not the same as origin/master"
+  #    puts "Run `git push` to sync changes."
+  #    exit
+  #  end
+  #end
 end
 
-before "deploy", "deploy:check_revision"
+#before "deploy", "deploy:check_revision"
 after "deploy", "deploy:cleanup" # keeps only last 5 releases
 after "deploy:setup", "deploy:setup_shared"
 after "deploy:update_code", "deploy:symlink_extras"
