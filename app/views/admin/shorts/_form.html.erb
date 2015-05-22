@@ -1,4 +1,4 @@
-<%= form_for(@short) do |f| %>
+<%= form_for([:admin, @short]) do |f| %>
 	<% if @short.errors.any? %>
 		<div id="error_explanation">
 			<h2><%= pluralize(@short.errors.count, "error") %> prohibited this short from being saved:</h2>
@@ -19,7 +19,7 @@
 	<div class="field">
 		<%= f.label :contracted, "Short Code" %><br />
 		<%= f.text_field :contracted, placeholder: "leave blank to auto-generate" %>
-		
+
 		<% if @short.id %>
 			<span class="hint">Changing this will break old links.</span>
 		<% end %>

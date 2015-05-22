@@ -1,5 +1,4 @@
-class UsersController < ApplicationController
-
+class Admin::UsersController < AdminController
   def index
     @user = current_user
   end
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(new_user_path, :notice => "The site API has been generated") }
+        format.html { redirect_to(new_admin_user_path, :notice => "The site API has been generated") }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

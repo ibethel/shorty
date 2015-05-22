@@ -8,6 +8,6 @@ describe ApplicationHelper do
   end
 
   it "gets the proper stats url" do
-    expect(stats_url(short)).to eq "#{root_url}hello+"
+    expect(stats_url(short)).to eq "#{admin_root_url}/hello"
   end
 end
