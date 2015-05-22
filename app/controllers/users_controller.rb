@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
-  
+
   def index
     @user = current_user
   end
-  
+
   def new
     @user = User.new
     @users = User.where("provider = ?", "api").all
   end
-  
+
   def create
-    @user = User.new(params[:user])
+    @user = User.new(permitted_params[:user])
     @users = User.where("provider = ?", "api").all
-    
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to(new_user_path, :notice => "The site API has been generated") }
@@ -24,4 +24,9 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+
+  def permitted_params
+    params.permit(user: [:provider, :uid, :name])
+  end
 end

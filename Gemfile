@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "3.0.10"
+gem "rails", "4.2.1"
 
 # Bundle edge Rails instead:
 # gem "rails", :git => "git://github.com/rails/rails.git"
@@ -21,4 +21,6 @@ group :development, :test do
 	gem "rspec-rails"
 	gem "factory_girl_rails"
 	gem "thin"
+
+	gem 'web-console', '~> 2.0'
 end
