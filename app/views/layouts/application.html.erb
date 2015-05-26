@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
 <head>
 	<title><%= @page_title || "Shorten that URL" %> | bcrr.us</title>
@@ -32,6 +32,8 @@
 
 			<% if alert %>
 			<p class="alert"><%= alert %></p>
+			<% else %>
+			<p class = "alert"><%= "We are updating this site! Due to these changes the url to manage your short links will be changing. Starting June 15, 2015 to access bcrr.us please go to http://bcrr.us/admin/" %></p>
 			<% end %>
 		</section>
 
