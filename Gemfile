@@ -16,7 +16,7 @@ gem "kaminari"
 gem "awesome_print"
 
 group :development, :test do
-	gem "capistrano"
+	gem "capistrano", "~> 2.x"
 	gem "capistrano-ext"
 	gem "rspec-rails"
 	gem "factory_girl_rails"
