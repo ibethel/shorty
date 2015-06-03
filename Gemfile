@@ -14,6 +14,7 @@ gem "ruby-openid-apps-discovery"
 gem "ruby-mysql"
 gem "kaminari"
 gem "awesome_print"
+gem "classy_enum"
 
 group :development, :test do
 	gem "capistrano"

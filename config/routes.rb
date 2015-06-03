@@ -1,5 +1,4 @@
 Shorty::Application.routes.draw do
-
   match "/auth/:provider/callback" => "sessions#create", via: :post
   match "/auth/failure" => "sessions#failure", via: :get
   match "/signout" => "sessions#destroy", :as => :signout, via: :get
@@ -10,7 +9,10 @@ Shorty::Application.routes.draw do
     end
 
     resources :users
+    resources :embedded_forms
   end
+
+  resources :embedded_forms, only: :show
 
   namespace :api do
     resources :shorts

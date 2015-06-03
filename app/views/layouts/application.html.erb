@@ -15,6 +15,10 @@
 			</div>
 			<nav class="span-19 last">
 				<ul>
+					<% if controller.controller_name != "embedded_forms" %>
+						<li><%= link_to "Embedded Forms", admin_embedded_forms_path %></li>
+					<% end %>
+
 					<% if current_user.present? %>
 						<li><%= link_to "My Account", admin_users_path %></li>
 						<li><%= link_to "Site Keys", new_admin_user_path %></li>

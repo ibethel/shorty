@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @embedded_form.name %>
+</p>
+
+<p>
+  <strong>Url slug:</strong>
+  <%= @embedded_form.url_slug %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @embedded_form.service %>
+</p>
+
+<p>
+  <strong>Form:</strong>
+  <%= @embedded_form.form_url %>
+</p>
+
+<%= link_to 'Edit', edit_admin_embedded_form_path(@embedded_form) %> |
+<%= link_to 'Back', admin_embedded_forms_path %>
