@@ -1,12 +1,6 @@
 class ShortsController < ApplicationController
   def show
-    redirect_short
-  end
-
-  private
-
-  def redirect_short
-    @short = Short.find_by_contracted(params[:a])
+    @short = Short.find_by(id: params[:id])
 
     respond_to do |format|
       if @short.blank?

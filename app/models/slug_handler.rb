@@ -9,7 +9,7 @@ class SlugHandler
 
   def validate(record)
     record.errors.add("#{@attribute}", "can't be blank") unless record.send("#{@attribute}").present?
-    record.errors.add("#{@attribute}", "has already been taken") unless slug_unique?(record.send("#{@attribute}"))
+    record.errors.add("#{@attribute}", "has already been taken") if record.url_slug_changed? && !slug_unique?(record.send("#{@attribute}"))
   end
 
   private

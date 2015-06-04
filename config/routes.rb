@@ -13,6 +13,7 @@ Shorty::Application.routes.draw do
   end
 
   resources :embedded_forms, only: :show
+  resources :shorts, only: :show
 
   namespace :api do
     resources :shorts
@@ -21,5 +22,5 @@ Shorty::Application.routes.draw do
   root :to => redirect("http://bethel.global/")
   match '/admin/', :to => "admin/shorts#index", via: :get, :as => :admin_root
   match '/admin/*a', :to => 'admin/shorts#show', via: :get
-  match '*a', :to => 'shorts#show', via: :get
+  match '*a', :to => 'static#show', via: :get
 end
