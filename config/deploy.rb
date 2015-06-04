@@ -28,6 +28,8 @@ set :scm, "git"
 set :repository, "git@github.com:ibethel/shorty.git"
 set :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
+ssh_options[:port] = 4774
+
 namespace :deploy do
   desc "Tell Passenger to restart."
   task :restart, :roles => :web do

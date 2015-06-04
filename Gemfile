@@ -17,7 +17,7 @@ gem "awesome_print"
 gem "classy_enum"
 
 group :development, :test do
-	gem "capistrano"
+	gem "capistrano", "~> 2.x"
 	gem "capistrano-ext"
 	gem "rspec-rails"
 	gem "factory_girl_rails"
