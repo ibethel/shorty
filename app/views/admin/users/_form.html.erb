@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for([:admin, @user]) do |f| %>
 	<fieldset>
 		<legend>Add/Edit Application</legend>
 		<% if @user.errors.any? %>
@@ -12,9 +12,9 @@
 				</ul>
 			</div>
 		<% end %>
-	
+
 		<%= f.hidden_field :provider, value: "api" %>
-		<%= f.hidden_field :uid, value: @user.uid || ActiveSupport::SecureRandom.base64 %>
+		<%= f.hidden_field :uid, value: @user.uid || SecureRandom.base64 %>
 
 		<div class="field">
 			<%= f.label :name %>
