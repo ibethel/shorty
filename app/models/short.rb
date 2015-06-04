@@ -6,7 +6,7 @@ class Short < ActiveRecord::Base
             :presence => true,
             :format => { :with => /\A(http|https):\/\/[a-z0-9]/ix }
 
-  validate SlugHandler.new("contracted")
+  validate SlugHandler.new("contracted"), if: :contracted_changed?
 
   has_many :visits, :dependent => :delete_all
   belongs_to :user

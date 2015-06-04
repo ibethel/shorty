@@ -31,7 +31,7 @@ describe EmbeddedForm do
 
     it "should validate presence of the url slug" do
       subject.url_slug = nil
-      SlugHandler.any_instance.stub(:before_validation) { true }
+      allow_any_instance_of(SlugHandler).to receive(:before_validation).and_return(true)
       expect(subject.save).to eq false
       expect(subject.errors.full_messages).to include "Url slug can't be blank"
 
@@ -44,18 +44,18 @@ describe EmbeddedForm do
       form2 = FactoryGirl.create(:embedded_form)
       form2.url_slug = subject.url_slug
 
-      expect(subject.save).to eq false
-      expect(subject.errors.full_messages).to include "Url slug has already been taken"
+      expect(form2.save).to eq false
+      expect(form2.errors.full_messages).to include "Url slug has already been taken"
     end
 
     it "should validate presence of form id" do
       subject.form_url = nil
       expect(subject.save).to eq false
-      expect(subject.errors.full_messages).to include "Form can't be blank"
+      expect(subject.errors.full_messages).to include "Form url can't be blank"
 
       subject.form_url = ""
       expect(subject.save).to eq false
-      expect(subject.errors.full_messages).to include "Form can't be blank"
+      expect(subject.errors.full_messages).to include "Form url can't be blank"
     end
   end
 end

@@ -4,7 +4,7 @@ class EmbeddedForm < ActiveRecord::Base
   before_validation SlugHandler.new("url_slug")
 
   validates :name, :service, :form_url, presence: true
-  validate SlugHandler.new("url_slug")
+  validate SlugHandler.new("url_slug"), if: :url_slug_changed?
 
   classy_enum_attr :service
 end
