@@ -34,7 +34,7 @@ end
 # and `bundle config --delete local.pvcglue` to restore using remote repo
 # See http://ryanbigg.com/2013/08/bundler-local-paths/
 # and http://bundler.io/v1.3/bundle_config.html
-
+gem "tilt", "<2.0.0"
 gem 'pvcglue', "~> 0.1.25", :group => :development
 # gem 'pvcglue', "~> 0.1.25", :github => 'talyric/pvcglue', :branch => 'master', :group => :development
 # gem 'pvcglue', "~> 0.1.25", :path => "~/projects/pvcglue" , :group => :development
