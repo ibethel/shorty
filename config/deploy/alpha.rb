@@ -7,4 +7,4 @@ set :linked_files, ['.env.alpha']
 set :rvm_ruby_version, '2.2.2'
 set :ssh_options, {port: 4774}
 
-server '162.243.59.145', roles: %w{web app db}, user: 'deploy' # server: web_1
+server '162.243.43.149', roles: %w{web app db}, user: 'deploy' # server: web_1
