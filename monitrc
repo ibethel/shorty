@@ -1,0 +1,12 @@
+# Used to control the all of the workers that depend on it.
+# Allows workers to be started/stopped without needing root, using the web interface
+#
+#  Example
+#    curl http://localhost:2812/pvcglue_dev_box_local_control -d "action=start"
+#
+
+check file shorty_alpha_worker_control with path /sites/shorty/alpha/shared/worker_control
+  # this is a "no-op" so that the default monit actions do not execute
+  if does not exist then exec "/bin/true" else if succeeded then exec "/bin/true"
+
+
