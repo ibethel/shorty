@@ -5,7 +5,7 @@
 #    curl http://localhost:2812/pvcglue_dev_box_local_control -d "action=start"
 #
 
-check file shorty_preview_worker_control with path /sites/shorty/preview/shared/worker_control
+check file shorty_production_worker_control with path /sites/shorty/production/shared/worker_control
   # this is a "no-op" so that the default monit actions do not execute
   if does not exist then exec "/bin/true" else if succeeded then exec "/bin/true"
 
