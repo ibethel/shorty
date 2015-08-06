@@ -1,5 +1,6 @@
 Shorty::Application.routes.draw do
-  match "/auth/:provider/callback" => "sessions#create", via: :post
+  # match "/auth/:provider/callback" => "sessions#create", via: :post
+  match "/auth/:provider/callback" => "sessions#create", via: :get
   match "/auth/failure" => "sessions#failure", via: :get
   match "/signout" => "sessions#destroy", :as => :signout, via: :get
 
