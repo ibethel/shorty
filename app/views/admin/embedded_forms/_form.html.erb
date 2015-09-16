@@ -1,0 +1,33 @@
+<%= form_for([:admin, @embedded_form]) do |f| %>
+  <% if @embedded_form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@embedded_form.errors.count, "error") %> prohibited this embedded_form from being saved:</h2>
+
+      <ul>
+      <% @embedded_form.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Short code" %><br>
+    <%= f.text_field :url_slug %>
+  </div>
+  <div class="field">
+    <%= f.label :service %><br>
+    <%= f.select :service, collection: Service.select_options %>
+  </div>
+  <div class="field">
+    <%= f.label "Form URL" %><br>
+    <%= f.text_field :form_url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

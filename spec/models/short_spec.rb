@@ -34,31 +34,6 @@ describe Short do
     end
   end
 
-  context "when generating short code" do
-    it "generates a value if none already" do
-      expect(subject.contracted).to be_blank
-
-      subject.generate_short_code
-      expect(subject.contracted).to_not be_blank
-    end
-
-    it "doesn't generate a value if one already" do
-      expect(subject.contracted).to be_blank
-      contracted_text = "hello"
-      subject.contracted = contracted_text
-      expect(subject.contracted).to eq contracted_text
-
-      subject.generate_short_code
-      expect(subject.contracted).to eq contracted_text
-    end
-
-    it "generates a code on create" do
-      expect(subject.contracted).to be_blank
-      subject.save(validate: false)
-      expect(subject.contracted).to_not be_blank
-    end
-  end
-
   context "visits" do
     before(:each) do
       subject.expanded = "http://google.com"

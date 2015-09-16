@@ -1,22 +1,61 @@
-# SQLite version 3.x
-#   gem install sqlite3
-development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+# This is a generated file.  Do not modify...or else!  :)
+#
+# Add your username and password to your `.bash_profile` or equivalent, if needed.
+# (If you don't need a username or password locally for postgresql, you can skip this.)
+#
+# Example
+#  export DB_USER_POSTGRES_USERNAME=andrew
+#  export DB_USER_POSTGRES_PASSWORD=andrew
+#
+# Note:  This will use (or create) a new database for each branch in the project.
+#        Just run `rake db:rebuild` after creating or switching to a new branch.
+#        After that you won't need to rebuild the db when switching branches!  :)
+#
+#  You can disable this with the following if you think this is a bug, instead of a feature. ;)
+#
+#  export DB_USER_POSTGRES_DISABLE_BRANCHES=true
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
+server_common: &default_settings
+  adapter:  postgresql
+  encoding: utf8
+  username: <%= ENV['DB_USER_POSTGRES_USERNAME'] %>
+  password: <%= ENV['DB_USER_POSTGRES_PASSWORD'] %>
+  host:     <%= ENV['DB_USER_POSTGRES_HOST'] || 'localhost' %>
+  port:     <%= ENV['DB_USER_POSTGRES_PORT'] || '5432' %>
+
+development:
+  <<: *default_settings
+  database: <%= ['shorty_dev', ENV['DB_USER_POSTGRES_DISABLE_BRANCHES'] == 'true' ? nil : `git rev-parse --abbrev-ref HEAD`.strip].compact.join('_').downcase %>
+
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *default_settings
+  database: <%= ['shorty_test', ENV['DB_USER_POSTGRES_DISABLE_BRANCHES'] == 'true' ? nil : `git rev-parse --abbrev-ref HEAD`.strip].compact.join('_').downcase %>
+
+
+alpha:
+  <<: *default_settings
+  database: shorty_alpha
+
+beta:
+  <<: *default_settings
+  database: shorty_beta
+
+gamma:
+  <<: *default_settings
+  database: shorty_gamma
+
+delta:
+  <<: *default_settings
+  database: shorty_delta
+
+preview:
+  <<: *default_settings
+  database: shorty_preview
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *default_settings
+  database: shorty_production
+
+local:
+  <<: *default_settings
+  database: shorty_local

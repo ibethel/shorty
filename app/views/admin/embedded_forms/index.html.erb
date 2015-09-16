@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Embedded Forms</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Short Link</th>
+      <th>Service</th>
+      <th>Form Link</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @embedded_forms.each do |embedded_form| %>
+      <tr>
+        <td><%= link_to embedded_form.name, admin_embedded_form_path(embedded_form) %></td>
+        <td><%= link_to local_form_url(embedded_form), embedded_form_path(embedded_form), target: "blank" %></td>
+        <td><%= embedded_form.service.text %></td>
+        <td><%= link_to embedded_form.form_url, embedded_form.form_url, target: "blank" %></td>
+        <td><%= link_to 'Edit', edit_admin_embedded_form_path(embedded_form) %></td>
+        <td><%= link_to 'Destroy', admin_embedded_form_path(embedded_form), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Embedded Form', new_admin_embedded_form_path %>

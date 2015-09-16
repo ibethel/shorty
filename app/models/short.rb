@@ -1,19 +1,17 @@
 class Short < ActiveRecord::Base
-  before_create :generate_short_code
+  before_validation SlugHandler.new("contracted")
   before_save :generate_page_title
+
   validates :expanded,
             :presence => true,
             :format => { :with => /\A(http|https):\/\/[a-z0-9]/ix }
 
-  validates :contracted, uniqueness: true
+  validate SlugHandler.new("contracted"), if: :contracted_changed?
+
   has_many :visits, :dependent => :delete_all
   belongs_to :user
+
   default_scope { order("updated_at DESC") }
-
-
-  def generate_short_code
-    self.contracted = SecureRandom.base64(Random.new.rand(4..8)).gsub(/[^0-9a-z]/i, "") if contracted.blank?
-  end
 
   def record_visit(referrer, ipaddy)
     Visit.create(short: self, referred: referrer, ipaddress: ipaddy)
@@ -39,7 +37,6 @@ class Short < ActiveRecord::Base
     created_at
   end
 
-
   def generate_page_title
     require 'nokogiri'
     require 'open-uri'
@@ -52,5 +49,4 @@ class Short < ActiveRecord::Base
       self.title = nil
     end
   end
-
 end
