@@ -15,7 +15,7 @@ class Admin::ShortsController < AdminController
   # GET admin/shorts/1.xml
   def show
     @short = Short.find_by_contracted(params[:a])
-    redirect_to admin_short_visits_path(@short)
+    redirect_to edit_admin_short_path(@short)
   end
 
   # GET admin/shorts/new
