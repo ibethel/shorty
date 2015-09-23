@@ -10,38 +10,27 @@
 
 	<div class="container">
 		<header>
-			<div class="span-5" id="logo">
-				<%= link_to(image_tag("logo.png"), admin_root_path)%>
+            <div class="" id="back_wrapper">
+              <a href="http://ibethel.org">< Back to ibethel.org</a>
+            </div>
+			<div class="span-12" id="logo">
+				<%= link_to(image_tag("bethel_logo.png", id: "logo_image"), admin_root_path)%>
+                <span id="page_slash"><%= image_tag("page_pipe.png", id: "page_pipe") %></span><span id="page_title"><%= @page_title || "Shorten that URL" %></span>
 			</div>
-			<nav class="span-19 last">
+			<nav class="span-12 last" id="nav_links">
 				<ul>
-					<% if controller.controller_name != "embedded_forms" %>
-						<li><%= link_to "Embedded Forms", admin_embedded_forms_path %></li>
-					<% end %>
-
 					<% if current_user.present? %>
+                        <li><%= link_to "Embedded Forms", admin_embedded_forms_path %></li>
 						<li><%= link_to "My Account", admin_users_path %></li>
 						<li><%= link_to "Site Keys", new_admin_user_path %></li>
 						<li><%= link_to "Sign Out", signout_path %></li>
 					<% else %>
-						<li>No User!</li>
+                      <li><%= link_to "Log In", admin_root_path %></li>
 					<% end %>
 				</ul>
 			</nav>
 			<div class="clear"></div>
 		</header>
-
-		<section id="flash-messages">
-			<% if notice %>
-			<p class="notice"><%= notice %></p>
-			<% end %>
-
-			<% if alert %>
-			<p class="alert"><%= alert %></p>
-			<% else %>
-			<p class = "alert"><%= "We are updating this site! Due to these changes the url to manage your short links will be changing. Starting June 15, 2015 to access bcrr.us please go to http://bcrr.us/admin/" %></p>
-			<% end %>
-		</section>
 
 		<section id="above-wrapper">
 			<%= yield :above_wrapper %>

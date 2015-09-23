@@ -1,12 +1,42 @@
 body {
-  background: #ebe9e4;
-  color: #5b616b;
-  font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background: #F4F4F2;
+  color: #6D7F83;
+  font-family: 'Open Sans', sans-serif;
   font-size: 0.8em;
   margin: 0 auto 150px auto;
 }
 header { margin: 0 auto; }
-header div#logo { margin: 20px 0; }
+header div#logo {
+    margin: 15px 0 0 5px;
+}
+div#back_wrapper{
+    margin: 20px 0px 0px 10px;
+}
+div#back_wrapper a{
+    text-decoration: none;
+    color:#6D7F83;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+div#logo img{
+    vertical-align: middle;
+}
+#logo_image{
+    width:100px;
+}
+#page_pipe{
+    width:22px;
+}
+
+span#page_title{
+    color:#9FB5B7;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-left:10px;
+}
+
 header nav {
   font-size: 1.2em;
   text-align: right;
@@ -31,8 +61,11 @@ header nav ul li span.unread-messages-count-nav {
   vertical-align: super;
 }
 header nav ul li a {
-  color: #222222;
-  text-decoration: none;
+    color: #9FB5B7;
+      text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
 }
 .buttons {
   background: #eeeeee;
