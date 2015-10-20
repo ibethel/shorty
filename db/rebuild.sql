@@ -247,13 +247,14 @@ ALTER TABLE ONLY visits ALTER COLUMN id SET DEFAULT nextval('visits_id_seq'::reg
 -- Data for Name: embedded_forms; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+INSERT INTO embedded_forms (id, name, url_slug, service, form_url, created_at, updated_at) VALUES (1, 'Test Form', 'test', 'form_site', 'https://fs2.formsite.com/bethelchurch/form220/index.html?1442857807615', '2015-09-23 21:15:48.959307', '2015-09-23 21:15:48.959307');
 
 
 --
 -- Name: embedded_forms_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('embedded_forms_id_seq', 1, false);
+SELECT pg_catalog.setval('embedded_forms_id_seq', 1, true);
 
 
 --
