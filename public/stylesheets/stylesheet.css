@@ -61,7 +61,7 @@ header nav ul li span.unread-messages-count-nav {
   vertical-align: super;
 }
 header nav ul li a {
-    color: #9FB5B7;
+    color: #646464;
       text-decoration: none;
     font-size: 12px;
     text-transform: uppercase;
@@ -138,7 +138,7 @@ section#flash-messages p.alert { background: #d43c3c; }
 body#users div.single-comment { margin-bottom: 20px; }
 #wrapper {
   background: #ffffff;
-  border: 1px solid #d7d6d3;
+  /*border: 1px solid #d7d6d3;*/
   margin: 35px auto 75px auto;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -392,14 +392,21 @@ section#above-wrapper div.future-answers-explain {
 }
 
 #footer_link{
-    border: 2px solid #8DA69F;
+    border: 2px solid #94b2b5;
     width:170px;
     text-align: center;
     margin: auto;
-    padding:12px 0px 12px 0px;
+    padding:13px 26px;
     color:#9FB5B7;
     text-transform: uppercase;
-    font-size: 9px;
-    font-weight: bold;
+    font-size: 12px;
+    font-weight: 600;
     cursor: pointer;
+    letter-spacing: 1px;
+    border-radius: 3px;
+}
+
+#footer_link:hover{
+    background: #94b2b5;
+    color: #fff;
 }
