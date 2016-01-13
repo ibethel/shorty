@@ -11,6 +11,8 @@ class Short < ActiveRecord::Base
   has_many :visits, :dependent => :delete_all
   belongs_to :user
 
+  scope :exclude_bethel_tv, -> {where("expanded NOT LIKE ?", "%bethel.tv%" )}
+
   default_scope { order("updated_at DESC") }
 
   def record_visit(referrer, ipaddy)
