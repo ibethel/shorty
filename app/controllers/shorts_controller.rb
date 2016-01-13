@@ -1,7 +1,6 @@
 class ShortsController < ApplicationController
   def show
     @short = Short.find_by(id: params[:id])
-    # @short = Short.where('lower(id) = ?', params[:id].downcase).first
 
     respond_to do |format|
       if @short.blank?
