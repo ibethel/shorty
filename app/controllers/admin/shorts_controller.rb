@@ -69,7 +69,7 @@ class Admin::ShortsController < AdminController
     @short.expanded = params[:short][:expanded]
 
     respond_to do |format|
-      if @short.save!
+      if @short.save
         format.html { redirect_to(admin_short_visits_path(@short), :notice => 'Short was successfully updated.') }
         format.xml  { head :ok }
       else
