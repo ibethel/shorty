@@ -22,6 +22,8 @@ class Api::ShortsController < ApiController
 
   def create
     @short = Short.new(permitted_params[:short])
+    # make the short code downcase because the code is now not case sensitive
+    @short.contracted = @short.contracted.downcase
     @short.user = @user
 
     respond_to do |format|

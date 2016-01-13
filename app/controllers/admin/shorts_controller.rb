@@ -2,8 +2,15 @@ class Admin::ShortsController < AdminController
   # GET admin/shorts
   # GET admin/shorts.xml
   def index
-    @shorts = Short.page(params[:page])
-    @view_count = Visit.count(:all)
+    if params[:include_bethel_tv]
+      @shorts = Short.page(params[:page])
+      @including_bethel_tv = true
+      @view_count = Visit.count(:all)
+    else
+      @shorts = Short.exclude_bethel_tv.page(params[:page])
+      @view_count = Visit.joins(:short).where("expanded NOT LIKE '%bethel.tv%'").count()
+      @including_bethel_tv = false
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,6 +45,8 @@ class Admin::ShortsController < AdminController
   # POST admin/shorts.xml
   def create
     @short = Short.new(permitted_params[:short])
+    # make the short code downcase because the code is now not case sensitive
+    @short.contracted = @short.contracted.downcase
     @short.user = @current_user
 
     respond_to do |format|
@@ -56,9 +65,11 @@ class Admin::ShortsController < AdminController
   def update
     @short = Short.find(params[:id])
     @short.user = @current_user
+    @short.contracted = params[:short][:contracted].downcase
+    @short.expanded = params[:short][:expanded]
 
     respond_to do |format|
-      if @short.update_attributes(permitted_params[:short])
+      if @short.save
         format.html { redirect_to(admin_short_visits_path(@short), :notice => 'Short was successfully updated.') }
         format.xml  { head :ok }
       else

@@ -1,5 +1,16 @@
-<h1 class="span-17"><%= pluralize(Short.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
+<% if @including_bethel_tv %>
+    <h1 class="span-17"><%= pluralize(Short.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
+<% else %>
+    <h1 class="span-17"><%= pluralize(Short.exclude_bethel_tv.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
+<% end %>
 <%= link_to 'New Short', new_admin_short_path, class: "buttons span-4 last" %>
+<div style="padding-top:50px;">
+  <% if @including_bethel_tv %>
+    Including Bethel.TV links.<br/> <a href="/admin/">Hide these links.</a>
+  <% else %>
+    Excluding Bethel.TV links.<br/> <a href="/admin/?include_bethel_tv=yes">Show these links.</a>
+  <% end %>
+</div>
 <div class="clear"></div>
 
 <%= paginate @shorts %>
@@ -11,6 +22,7 @@
 			<th>Short Link</th>
 			<th>Visits</th>
 			<th></th>
+            <th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -19,6 +31,7 @@
 			<td><%= link_to short.title, stats_url(short) %></td>
 			<td><%= link_to(short_url(short), short.contracted, target: "_blank") %></td>
 			<td><%= short.visits.count %></td>
+            <td><%= link_to "visits", admin_short_visits_path(short) %></td>
 			<td><%= link_to "edit", edit_admin_short_path(short) %></td>
 		</tr>
 	<% end %>
