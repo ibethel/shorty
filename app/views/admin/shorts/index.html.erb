@@ -3,7 +3,7 @@
 <%= link_to 'New Short', new_admin_short_path, class: "buttons span-4 last" %>
 <div style="padding-top:50px;width:25%;float:left;">
   <% if @including_bethel_tv %>
-    Including Bethel.TV.<br/> <a href="/admin/?toggle_tv=yes">Hide these links.</a>
+    Including Bethel.TV.<br/> <a href="/admin?toggle_tv=yes">Hide these links.</a>
   <% else  %>
     Excluding Bethel.TV links.<br/> <a href="/admin?toggle_tv=yes">Show these links.</a>
   <% end %>
