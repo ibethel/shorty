@@ -1,14 +1,18 @@
-<% if @including_bethel_tv %>
-    <h1 class="span-17"><%= pluralize(Short.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
-<% else %>
-    <h1 class="span-17"><%= pluralize(Short.exclude_bethel_tv.count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
-<% end %>
+<h1 class="span-17"><%= pluralize(@shorts_count, "URL") %> viewed <%= pluralize(@view_count, "time") %></h1>
+
 <%= link_to 'New Short', new_admin_short_path, class: "buttons span-4 last" %>
-<div style="padding-top:50px;">
+<div style="padding-top:50px;width:25%;float:left;">
   <% if @including_bethel_tv %>
-    Including Bethel.TV links.<br/> <a href="/admin/">Hide these links.</a>
-  <% else %>
-    Excluding Bethel.TV links.<br/> <a href="/admin/?include_bethel_tv=yes">Show these links.</a>
+    Including Bethel.TV.<br/> <a href="/admin/?toggle_tv=yes">Hide these links.</a>
+  <% else  %>
+    Excluding Bethel.TV links.<br/> <a href="/admin/?toggle_tv=yes">Show these links.</a>
+  <% end %>
+</div>
+<div style="padding-top:50px;width:25%;float:left;">
+  <% if @including_podcast %>
+      Including Podcasts.<br/> <a href="/admin/?toggle_podcast=yes">Hide these links.</a>
+  <% else  %>
+      Excluding Podcast links.<br/> <a href="/admin/?toggle_podcast=yes">Show these links.</a>
   <% end %>
 </div>
 <div class="clear"></div>

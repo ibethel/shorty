@@ -2,14 +2,54 @@ class Admin::ShortsController < AdminController
   # GET admin/shorts
   # GET admin/shorts.xml
   def index
-    if params[:include_bethel_tv]
+    session[:include_bethel_tv] = false if session[:include_bethel_tv] == nil
+    session[:include_podcast] = false if session[:include_podcast] == nil
+
+    if params[:toggle_podcast]
+      session[:include_podcast] == true ? session[:include_podcast] = false : session[:include_podcast] = true
+    end
+
+    if params[:toggle_tv]
+      session[:include_bethel_tv] == true ? session[:include_bethel_tv] = false : session[:include_bethel_tv] = true
+    end
+
+    #
+    # Including both podcast and Bethel.TV links
+    #
+    if session[:include_bethel_tv] && session[:include_podcast]
       @shorts = Short.page(params[:page])
       @including_bethel_tv = true
+      @including_podcast = true
+      @shorts_count = Short.count(:all)
       @view_count = Visit.count(:all)
-    else
+    #
+    # Including Bethel.TV links but hiding podcast links
+    #
+    elsif session[:include_bethel_tv]
+      @shorts = Short.exclude_podcasts.page(params[:page])
+      @shorts_count = Short.exclude_podcasts.count
+      @view_count = Visit.joins(:short).where("expanded NOT LIKE '%podcast%'").count()
+      @including_bethel_tv = true
+      @including_podcast = false
+    #
+    # Including podcast links but hiding bethel.TV links
+    #
+    elsif session[:include_podcast]
       @shorts = Short.exclude_bethel_tv.page(params[:page])
       @view_count = Visit.joins(:short).where("expanded NOT LIKE '%bethel.tv%'").count()
+      @shorts_count = Short.exclude_bethel_tv.count
       @including_bethel_tv = false
+      @including_podcast = true
+    #
+    # Excluding podcast links and bethel.TV links
+    #
+    else
+      @shorts = Short.exclude_bethel_tv.exclude_podcasts.page(params[:page])
+      @view_count = Visit.joins(:short).where("expanded NOT LIKE '%bethel.tv%' AND expanded NOT LIKE '%podcast%'").count()
+      @shorts_count = Short.exclude_bethel_tv.exclude_podcasts.count
+      @including_bethel_tv = false
+      @including_bethel_tv = false
+      @including_podcast = false
     end
 
     respond_to do |format|

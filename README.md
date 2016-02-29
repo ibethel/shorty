@@ -34,3 +34,6 @@ YES!  API docs are available at <https://github.com/ibethel/shorty/wiki/API>
 1. Write tests
 2. Capture more information about users
 3. Better reporting output
+
+URLS
+preview.bcrr.us/admin#

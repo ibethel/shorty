@@ -12,6 +12,7 @@ class Short < ActiveRecord::Base
   belongs_to :user
 
   scope :exclude_bethel_tv, -> {where("expanded NOT LIKE ?", "%bethel.tv%" )}
+  scope :exclude_podcasts, -> {where("expanded NOT LIKE ?", "%podcasts.ibethel.org%" )}
 
   default_scope { order("updated_at DESC") }
 
