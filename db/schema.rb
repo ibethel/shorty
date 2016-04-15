@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150526213406) do
+ActiveRecord::Schema.define(version: 20160415190022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,48 +26,44 @@ ActiveRecord::Schema.define(version: 20150526213406) do
   end
 
   create_table "shorts", force: :cascade do |t|
-    t.string   "expanded"
-    t.string   "contracted"
+    t.string   "expanded",    limit: 510
+    t.string   "contracted",  limit: 510
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title"
-    t.string   "cached_slug"
+    t.string   "title",       limit: 510
+    t.string   "cached_slug", limit: 510
     t.integer  "user_id"
   end
 
-  add_index "shorts", ["contracted"], name: "index_shorts_on_contracted", using: :btree
-
   create_table "slugs", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",           limit: 510
     t.integer  "sluggable_id"
-    t.integer  "sequence",                  default: 1, null: false
-    t.string   "sluggable_type", limit: 40
-    t.string   "scope"
+    t.integer  "sequence",                   default: 1, null: false
+    t.string   "sluggable_type", limit: 80
+    t.string   "scope",          limit: 510
     t.datetime "created_at"
   end
 
-  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], name: "index_slugs_on_n_s_s_and_s", unique: true, using: :btree
-  add_index "slugs", ["sluggable_id"], name: "index_slugs_on_sluggable_id", using: :btree
+  add_index "slugs", ["name", "sluggable_type", "sequence", "scope"], name: "slugs_name_sluggable_type_sequence_scope_key", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
+    t.string   "provider",   limit: 510
+    t.string   "uid",        limit: 510
+    t.string   "name",       limit: 510
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "api_key"
+    t.string   "api_key",    limit: 510
+    t.string   "email"
   end
 
-  add_index "users", ["api_key"], name: "index_users_on_api_key", unique: true, using: :btree
+  add_index "users", ["api_key"], name: "users_api_key_key", unique: true, using: :btree
 
   create_table "visits", force: :cascade do |t|
     t.integer  "short_id"
-    t.string   "referred"
+    t.string   "referred",   limit: 510
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ipaddress"
+    t.string   "ipaddress",  limit: 510
   end
-
-  add_index "visits", ["short_id"], name: "index_visits_on_short_id", using: :btree
 
 end

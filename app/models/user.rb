@@ -3,14 +3,17 @@ class User < ActiveRecord::Base
   has_many :shorts
   before_create :generate_api_key
   validates_presence_of :name
+  validates_presence_of :email
   validates_uniqueness_of :name,:if => Proc.new { |user| user.provider == "api" }
   validates :api_key, uniqueness: true
+  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@ibethel\.org\z/, message: "invalid email domain account" }
 
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
+      user.email = auth["info"]["email"]
     end
   end
 
