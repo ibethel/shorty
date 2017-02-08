@@ -20,7 +20,7 @@ Shorty::Application.routes.draw do
     resources :shorts
   end
 
-  root :to => redirect("http://bethel.global/")
+  root :to => redirect("http://www.ibethel.org/")
   match '/admin/', :to => "admin/shorts#index", via: :get, :as => :admin_root
   match '/admin/*a', :to => 'admin/shorts#show', via: :get
   match '*a', :to => 'static#show', via: :get
