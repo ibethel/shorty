@@ -21,6 +21,8 @@ gem "ruby-openid-apps-discovery"
 gem "kaminari"
 gem "awesome_print"
 gem "classy_enum"
+gem "sprockets", "~> 3.1.0"
+gem "sprockets-rails", "~> 2.3.1"
 
 group :development, :test do
 	gem "rspec-rails"
