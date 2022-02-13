@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :name,:if => Proc.new { |user| user.provider == "api" }
   validates :api_key, uniqueness: true
-  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@bethel\.com\z/, message: "invalid email domain account" }
+  # validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@bethel\.com\z/, message: "invalid email domain account" }
 
   def self.create_with_omniauth(auth)
     create! do |user|
