@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     if Rails.env == "development"
       @current_user ||= User.first
     else
+      puts current_user
       redirect_to "/auth/google_oauth2" unless current_user
     end
   end
