@@ -1,5 +1,5 @@
 source "http://rubygems.org"
-ruby "2.2.2"
+ruby "2.5.9"
 
 ################# Must be at top ###################
 gem 'dotenv-rails'
@@ -13,7 +13,7 @@ gem "rails", "4.2.1"
 # gem "sqlite3"
 gem "pg"
 gem "faker"
-gem "omniauth-google-oauth2"
+gem "omniauth-google-oauth2", "~> 0.5.4"
 gem "nokogiri"
 gem "friendly_id"
 gem "ruby-openid-apps-discovery"
