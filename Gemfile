@@ -5,7 +5,7 @@ ruby "2.5.9"
 gem 'dotenv-rails'
 ################# Must be at top ###################
 
-gem "rails", "4.2.1"
+gem "rails", "4.2.11"
 
 # Bundle edge Rails instead:
 # gem "rails", :git => "git://github.com/rails/rails.git"
