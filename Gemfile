@@ -11,10 +11,10 @@ gem "rails", "4.2.11"
 # gem "rails", :git => "git://github.com/rails/rails.git"
 
 # gem "sqlite3"
-gem "pg", '~> 0.2'
+gem "pg", "~> 0.2"
 gem "faker"
 gem "omniauth-google-oauth2"
-gem "nokogiri"
+gem "nokogiri", "~> 1.6.6.2"
 gem "friendly_id"
 gem "ruby-openid-apps-discovery"
 # gem "ruby-mysql"
