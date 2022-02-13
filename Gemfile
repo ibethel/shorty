@@ -1,26 +1,28 @@
 source "http://rubygems.org"
-ruby "2.2.2"
+ruby "2.5.9"
 
 ################# Must be at top ###################
 gem 'dotenv-rails'
 ################# Must be at top ###################
 
-gem "rails", "4.2.1"
+gem "rails", "4.2.11"
 
 # Bundle edge Rails instead:
 # gem "rails", :git => "git://github.com/rails/rails.git"
 
 # gem "sqlite3"
-gem "pg"
+gem "pg", "~> 0.2"
 gem "faker"
 gem "omniauth-google-oauth2"
-gem "nokogiri"
+gem "nokogiri", "~> 1.6.6.2"
 gem "friendly_id"
 gem "ruby-openid-apps-discovery"
 # gem "ruby-mysql"
 gem "kaminari"
 gem "awesome_print"
 gem "classy_enum"
+gem "sprockets", "~> 3.1.0"
+gem "sprockets-rails", "~> 2.3.1"
 
 group :development, :test do
 	gem "rspec-rails"

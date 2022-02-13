@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   def create
     auth = request.env["omniauth.auth"]
     #raise request.env["omniauth.auth"].to_yaml
@@ -12,5 +12,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to admin_root_url, :notice => "Signed out!"
   end
-  
+
 end
