@@ -150,7 +150,7 @@ GEM
       net-ssh
       thor
       tilt
-    pg (1.2.3)
+    pg (0.21.0)
     pvcglue (0.1.26)
       capistrano (~> 3.1.0, >= 3.1.0)
       capistrano-bundler (~> 1.1, >= 1.1.1)
@@ -252,7 +252,7 @@ DEPENDENCIES
   kaminari
   nokogiri
   omniauth-google-oauth2
-  pg
+  pg (~> 0.2)
   pvcglue (~> 0.1.25)
   pvcglue_dbutils (~> 0.5.4)
   rails (= 4.2.1)

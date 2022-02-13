@@ -11,7 +11,7 @@ gem "rails", "4.2.1"
 # gem "rails", :git => "git://github.com/rails/rails.git"
 
 # gem "sqlite3"
-gem "pg"
+gem "pg", '~> 0.2'
 gem "faker"
 gem "omniauth-google-oauth2"
 gem "nokogiri"
